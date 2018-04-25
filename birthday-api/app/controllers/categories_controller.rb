@@ -16,7 +16,7 @@ class CategoriesController < ApplicationController
     
     #GET /categories/:id
     def show
-        json_response(@category)
+        json_response(@category = Category.find(params[:id]))
     end
     
     #PUT /categories/:id
