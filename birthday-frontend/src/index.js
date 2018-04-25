@@ -30,14 +30,13 @@ const BirthdayListItem = (props) => {
 }
 
 const BirthdayList = (props) => {
-    const birthdayItems = props.birthday.map((birthday) => {
+    const birthdayItems = props.birthdays.map((birthday) => {
         return (
             <BirthdayListItem
                 name = {birthday.name}
                 date = {birthday.date}
                 id = {birthday.id}
                 key = {birthday.id}
-                category = {category.category}
                 onDelete = {props.onDelete}
                 onEdit = {props.onEdit}
             />
