@@ -5,18 +5,18 @@ import registerServiceWorker from './registerServiceWorker';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/css/bootstrap-theme.css'
 
-const BirthdayForm = (props) => {
+const CategoryForm = (props) => {
     return (
-        <div className = "birthday-form">
-            The birthday goes here
+        <div className = "category-form">
+            The category goes here
         </div>
     );
 }
 
-const BirthdayListItem = (props) => {
+const CategoryListItem = (props) => {
     return (
         <tr>
-            <td className = "col-md-3">{props.birthday}</td>
+            <td className = "col-md-3">{props.category}</td>
             <td className = "col-md-3 btn-toolbar">
                 <button className = "btn btn-success btn-sm" onClick = {event => props.onEdit("edit", props)}>
                     <i className = "glyphicon glyphicon-pencil"></i> Edit
@@ -29,14 +29,13 @@ const BirthdayListItem = (props) => {
     )
 }
 
-const BirthdayList = (props) => {
-    const birthdayItems = props.birthdays.map((birthday) => {
+const CategoryList = (props) => {
+    const categoryItems = props.categorys.map((category) => {
         return (
-            <BirthdayListItem
-                name = {birthday.name}
-                date = {birthday.date}
-                id = {birthday.id}
-                key = {birthday.id}
+            <CategoryListItem
+                category = {category.category}
+                id = {category.id}
+                key = {category.id}
                 onDelete = {props.onDelete}
                 onEdit = {props.onEdit}
             />
@@ -44,55 +43,53 @@ const BirthdayList = (props) => {
     });
 
     return (
-        <div className = "birthday-list">
+        <div className = "category-list">
             <table className = "table table-hover">
                 <thead>
                     <tr>
-                        <th className = "col-md-3">Name</th>
-                        <th className = "col-md-3">Date</th>
                         <th className = "col-md-3">Category</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {birthdayItems}
+                    {categoryItems}
                 </tbody>
             </table>
         </div>
     );
 }
 
-class Birthdays extends React.Component {
+class Categorys extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            birthdays: [],
+            categorys: [],
         };
-        this.loadBirthdays = this.loadBirthdays.bind(this);
+        this.loadCategorys = this.loadCategorys.bind(this);
     }
 
-    loadBirthdays(){
+    loadCategorys(){
         this.setState({
-            birthdays: [
-                {name: "John", date: "5/16/2000"},
-                {name: "Jane", date: "4/1/1999"},
-                {name: "Victor", date: "12/10/1991"},
+            categorys: [
+                {category: "Friend"},
+                {category: "Family"},
+                {category: "Coleague"},
             ]
         });
     }
 
     componentDidMount(){
-        this.loadBirthdays();
+        this.loadCategorys();
     }
 
     render(){
         return (
-            <div className = "birthdays">
-                <BirthdayForm />
-                <BirthdayList birthdays = {this.state.birthdays}/>
+            <div className = "categorys">
+                <CategoryForm />
+                <CategoryList categorys = {this.state.categorys}/>
             </div>
         );
     }
 }
 
-ReactDOM.render(<Birthdays />, document.getElementById('root'));
+ReactDOM.render(<Categorys />, document.getElementById('root'));
 registerServiceWorker();
