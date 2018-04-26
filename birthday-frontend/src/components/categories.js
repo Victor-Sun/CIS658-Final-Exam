@@ -70,7 +70,7 @@ class Categories extends React.Component {
 	}
 	
 	updateCategory(category){
-		axios.put(`${API_BASE/categories/${category.id}`, category).then(res => {
+		axios.put(`${API_BASE}/categories/${category.id}`, category).then(res => {
 			this.loadCategories();
 		})
 		.catch(err => console.log(err));
@@ -79,7 +79,7 @@ class Categories extends React.Component {
 	removeCategory(id){
 		let filteredArray = this.state.categories.filter(item => item.id !== id)
 		this.setState({categories: filteredArray});
-		axios.delete('${API_BASE/categories/${id}}').then(res => {
+		axios.delete(`${API_BASE}/categories/${id}`).then(res => {
 			console.log('Record Deleted');
 		})
 		.catch(err => console.log(err));

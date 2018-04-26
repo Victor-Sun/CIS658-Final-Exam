@@ -68,7 +68,7 @@ class CategoryForm extends React.Component {
 						<label> category </label>
 						<input type = "text" className = "form-control" autoComplete = '' name = "category" id = "category" placeholder = "Category" value = {this.state.category} onChange = {this.handleInputChange}/>
 					</div>
-					{this.renderbuttons()}
+					{this.renderButtons()}
 				</form>
 			</div>
 		);
