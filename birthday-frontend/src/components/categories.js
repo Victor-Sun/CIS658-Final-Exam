@@ -2,7 +2,7 @@ import React from 'react';
 import CategoryForm from './category_form';
 import CategoryList from './category_list';
 import axios from 'axios';
-const API_BASE = "http://cis658-final-exam-mynameisvictor163100.codeanyapp.com:3000";
+const API_BASE = "https://finalexam658.herokuapp.com/";
 
 class Categories extends React.Component {
 	constructor(props){
