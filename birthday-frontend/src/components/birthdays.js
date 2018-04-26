@@ -1,9 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-const API_BASE = 'http://localhost:3000';
+const API_BASE = 'http://cis658-final-exam-mynameisvictor163100.codeanyapp.com:3000';
 
-const Birthdays = (props) => {
+const BirthdayItem = (props) => {
     return(
 		<tr>
 			<td className = "col-md-3">{props.name}</td>
@@ -26,15 +26,15 @@ class Birthdays extends React.Component {
 
 	constructor(props){
 		super(props);
-		const id = props.match.paramd.id;
+		const id = props.match.params.id;
 		this.state = {
 			birthdays: [],
-			birthday_id: id,
-			birthday: {},
+			category_id: id,
+			category: {},
 		};
 
 		this.loadBirthdays = this.loadBirthdays.bind(this);
-		this.deleteBirthdays = this.deleteBirthdays.bind(this);
+		this.deleteBirthday = this.deleteBirthday.bind(this);
 	}
 
 	loadBirthdays(){
@@ -64,7 +64,7 @@ class Birthdays extends React.Component {
 
     componentDidMount(){
         console.log('Posts mounted!')
-        this.loadPosts();
+        this.loadBirthdays();
     }
 
     render(){
@@ -81,7 +81,7 @@ class Birthdays extends React.Component {
             )
         });
 
-        const headerString = (this.state.birthdays.count === 0) ? "Loading..." : `Posts by ${this.state.category.category}`
+        const headerString = (this.state.birthdays.count === 0) ? "Loading..." : `Birthdays by ${this.state.category.category}`
         return (
             <div className = "birthdays">
                 <h1> {headerString} </h1>
@@ -89,8 +89,8 @@ class Birthdays extends React.Component {
                     <table className = "table table-hover">
                         <thead>
                             <tr>
-                                <th className = "col-md-3">Name</ht>
-                                <th className = "col-md-3">Date</ht>
+                                <th className = "col-md-3">Name</th>
+                                <th className = "col-md-3">Date</th>
                             </tr>
                         </thead>
                         <tbody>

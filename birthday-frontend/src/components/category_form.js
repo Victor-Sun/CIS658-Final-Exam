@@ -24,7 +24,7 @@ class CategoryForm extends React.Component {
 	
 	handleSubmit(event){
 		this.props.onSubmit({
-		  catgegory: this.state.catgegory,
+		  category: this.state.category,
 		  id: this.state.id,
 		});
     	event.preventDefault();
@@ -65,7 +65,7 @@ class CategoryForm extends React.Component {
 				<h1> Categories </h1>
 				<form onSubmit = {this.handleSubmit}>
 					<div className = "form-group">
-						<label> category </label>
+						<label> Category </label>
 						<input type = "text" className = "form-control" autoComplete = '' name = "category" id = "category" placeholder = "Category" value = {this.state.category} onChange = {this.handleInputChange}/>
 					</div>
 					{this.renderButtons()}

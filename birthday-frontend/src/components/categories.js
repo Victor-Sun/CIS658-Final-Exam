@@ -2,7 +2,7 @@ import React from 'react';
 import CategoryForm from './category_form';
 import CategoryList from './category_list';
 import axios from 'axios';
-const API_BASE = "http://localhost:3000";
+const API_BASE = "http://cis658-final-exam-mynameisvictor163100.codeanyapp.com:3000";
 
 class Categories extends React.Component {
 	constructor(props){
@@ -17,16 +17,6 @@ class Categories extends React.Component {
 		this.addCategory = this.addCategory.bind(this);
 		this.updateCategory = this.updateCategory.bind(this);
 	}
-	
-	//     loadCategories(){
-	//         this.setState({
-	//             categories: [
-	//                 {id:1, category: "Friend"},
-	//                 {id:2, category: "Family"},
-	//                 {id:3, category: "Coleague"},
-	//             ]
-	//         });
-	//     }
 	
 	updateForm(mode, categoryVals){
 		this.setState({
@@ -86,6 +76,7 @@ class Categories extends React.Component {
 	}
 	
 	componentDidMount(){
+
 		this.loadCategories();
 	}
 	
