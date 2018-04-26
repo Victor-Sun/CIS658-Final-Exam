@@ -20,7 +20,7 @@ ReactDOM.render(
 			<Switch>
 				<Route path="/categories/:id/birthdays/create" component={BirthdayForm} />
 				<Route path="/categories/:id/birthdays/:pid" component={BirthdayForm} />
-// 				<Route path="/categories/:id/birthdays" component={birthdays} />
+				<Route path="/categories/:id/birthdays" component={birthdays} />
 				<Route path="/categories" component={Categories} />
 				<Route path="/about" component={About} />
 				<Route path="/" component={Home} />
