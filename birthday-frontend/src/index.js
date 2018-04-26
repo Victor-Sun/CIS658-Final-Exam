@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Categories from './components/categories';
 import Birthdays from './components/birthdays';
-import BirthdayForm from './components/birthday_form';
+import BirthdayForm from './components/birthdays_form';
 import Home from './components/home';
 import TopNav from './components/top_nav';
 import Footer from './components/footer';

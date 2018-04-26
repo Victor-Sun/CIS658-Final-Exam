@@ -1,5 +1,5 @@
 import React from 'react';
-import {Nav, Navbar, Navitem} from 'react-bootstrap';
+import {Nav, Navbar, NavItem} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
 
 const TopNav = (props) => {
@@ -12,7 +12,7 @@ const TopNav = (props) => {
                             <a href = "/"> My Birthday List </a>
                         </LinkContainer>
                     </Navbar.Brand>
-                    <navbar.Toggle />
+                    <Navbar.Toggle />
                 </Navbar.Header>
                 <Navbar.Collapse>
                     <Nav>

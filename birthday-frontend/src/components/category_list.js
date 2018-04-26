@@ -23,7 +23,7 @@ const CategoryListItem  = (props) =>  {
 }
 
 const CategoryList = (props) => {
-    const authorItems = props.authors.map((author)  => {
+    const categoryItems = props.categories.map((category)  => {
         return (
             <CategoryListItem
             category={category.category}
@@ -44,7 +44,7 @@ const CategoryList = (props) => {
         </tr>
         </thead>
         <tbody>
-        {categoryItems}
+            {categoryItems}
         </tbody>
         </table>
         </div>
