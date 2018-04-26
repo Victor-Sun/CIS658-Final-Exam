@@ -1,95 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import Categories from './components/categories';
+import Birthdays from './components/birthdays';
+import BirthdayForm from './components/birthday_form';
+import Home from './components/home';
+import About from './components/about';
+import TopNav from './components/top_nav';
+import Footer from './components/footer';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap/dist/css/bootstrap-theme.css'
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
+import './index.css';
 
-const CategoryForm = (props) => {
-    return (
-        <div className = "category-form">
-            The category goes here
-        </div>
-    );
-}
-
-const CategoryListItem = (props) => {
-    return (
-        <tr>
-            <td className = "col-md-3">{props.category}</td>
-            <td className = "col-md-3 btn-toolbar">
-                <button className = "btn btn-success btn-sm" onClick = {event => props.onEdit("edit", props)}>
-                    <i className = "glyphicon glyphicon-pencil"></i> Edit
-                </button>
-                <button className = "btn btn-danger btn-sm" onClick = {event => props.onDelete(props.id)}>
-                    <i className = "glyphicon glyphicon-remove"></i> Delete
-                </button>
-            </td>
-        </tr>
-    )
-}
-
-const CategoryList = (props) => {
-    const categoryItems = props.categorys.map((category) => {
-        return (
-            <CategoryListItem
-                category = {category.category}
-                id = {category.id}
-                key = {category.id}
-                onDelete = {props.onDelete}
-                onEdit = {props.onEdit}
-            />
-        )
-    });
-
-    return (
-        <div className = "category-list">
-            <table className = "table table-hover">
-                <thead>
-                    <tr>
-                        <th className = "col-md-3">Category</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {categoryItems}
-                </tbody>
-            </table>
-        </div>
-    );
-}
-
-class Categorys extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            categorys: [],
-        };
-        this.loadCategorys = this.loadCategorys.bind(this);
-    }
-
-    loadCategorys(){
-        this.setState({
-            categorys: [
-                {category: "Friend"},
-                {category: "Family"},
-                {category: "Coleague"},
-            ]
-        });
-    }
-
-    componentDidMount(){
-        this.loadCategorys();
-    }
-
-    render(){
-        return (
-            <div className = "categorys">
-                <CategoryForm />
-                <CategoryList categorys = {this.state.categorys}/>
-            </div>
-        );
-    }
-}
-
-ReactDOM.render(<Categorys />, document.getElementById('root'));
+ReactDOM.render(
+	<BrowserRouter>
+		<div>
+			<TopNav />
+			<Switch>
+				<Route path="/categories/:id/birthdays/create" component={BirthdayForm} />
+				<Route path="/categories/:id/birthdays/:pid" component={BirthdayForm} />
+// 				<Route path="/categories/:id/birthdays" component={birthdays} />
+				<Route path="/categories" component={Categories} />
+				<Route path="/about" component={About} />
+				<Route path="/" component={Home} />
+			</Switch>
+			<Footer />
+		</div>
+	</BrowserRouter>
+, document.getElementById('root'));
 registerServiceWorker();
