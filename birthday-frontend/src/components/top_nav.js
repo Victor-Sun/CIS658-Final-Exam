@@ -5,7 +5,7 @@ import {LinkContainer} from 'react-router-bootstrap';
 const TopNav = (props) => {
     return (
         <div>
-            <Navbar inverse collapseOnSelect>
+            <Navbar inverse staticTop>
                 <Navbar.Header>
                     <Navbar.Brand>
                         <LinkContainer to = "/">

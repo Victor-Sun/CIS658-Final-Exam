@@ -11,3 +11,17 @@ body {
 .category-list {
     margin: 20px;
 }
+
+.homeImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.homeBackground {
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
